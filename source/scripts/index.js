@@ -19,19 +19,21 @@ notificationButton.onclick = () => {
 };
 
 function requestPermission() {
-    return new Promise((resolve, reject) => {
-        const permissionResult = Notification.requestPermission(function(result) {
+    const result = new Promise((resolve, reject) => {
+        const permissionResult = Notification.requestPermission(result => {
             resolve(result);
         });
         if (permissionResult) permissionResult.then(resolve, reject);
     })
-    .then((permissionResult) => {
-        const errorPermission = 'Error! Something bad happened to permission.';
+    .then(permissionResult => {
+        const errorPermission = 'The permission isn\'t granted.';
         if (permissionResult !== 'granted') throw new Error(errorPermission);
     })
     .catch(error => {
         throw new Error(error);
     })
+
+    return result;
 }
 
 requestPermission();
