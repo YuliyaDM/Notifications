@@ -14,6 +14,8 @@ notificationButton.onclick = function(){
     CreateNotification();
 }
 
+// just check the permission
+
 if (Notification.permission === "granted"){
     alert("we have permission!");
 }
