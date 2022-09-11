@@ -28,7 +28,10 @@ function requestPermission() {
     .then((permissionResult) => {
         const errorPermission = 'Error! Something bad happened to permission.';
         if (permissionResult !== 'granted') throw new Error(errorPermission);
-    });
+    })
+    .catch(error => {
+        throw new Error(error);
+    })
 }
 
 requestPermission();
