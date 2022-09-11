@@ -20,9 +20,7 @@ notificationButton.onclick = () => {
 
 function requestPermission() {
     const result = new Promise((resolve, reject) => {
-        const permissionResult = Notification.requestPermission(result => {
-            resolve(result);
-        });
+        const permissionResult = Notification.requestPermission(result =>  resolve(result));
         if (permissionResult) permissionResult.then(resolve, reject);
     })
     .then(permissionResult => {
