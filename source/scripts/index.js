@@ -13,3 +13,12 @@ function CreateNotification(){
 notificationButton.onclick = function(){
     CreateNotification();
 }
+
+if (Notification.permission === "granted"){
+    alert("we have permission!");
+}
+if (Notification.permission === "denied"){
+    Notification.requestPermission().then(permission => {
+        console.log(permission);
+    });
+}
