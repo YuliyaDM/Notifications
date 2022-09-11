@@ -16,11 +16,22 @@ notificationButton.onclick = function(){
 
 // just check the permission
 
-if (Notification.permission === "granted"){
-    alert("we have permission!");
-}
-if (Notification.permission === "denied"){
-    Notification.requestPermission().then(permission => {
-        console.log(permission);
+
+function requestPermission() {
+    return new Promise(function(resolve, reject) {
+        const permissionResult = Notification.requestPermission(function(result) {
+            resolve(result);
+        });
+
+        if (permissionResult) {
+            permissionResult.then(resolve, reject);
+        }
+    })
+    .then(function(permissionResult) {
+        if (permissionResult !== 'granted') {
+            throw new Error('Permission not granted.');
+        }
     });
 }
+
+requestPermission();
