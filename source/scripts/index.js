@@ -16,7 +16,6 @@ notificationButton.onclick = function(){
 
 // just check the permission
 
-
 function requestPermission() {
     return new Promise(function(resolve, reject) {
         const permissionResult = Notification.requestPermission(function(result) {
