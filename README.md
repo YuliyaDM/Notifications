@@ -1,4 +1,4 @@
-# Notifications 
+# notifications 
 ![img](https://shields.io/badge/secret-ffaec9?&style=for-the-badge)
 ![img](https://shields.io/badge/spamton-fff200?&style=for-the-badge)
 
